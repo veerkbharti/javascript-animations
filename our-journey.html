@@ -68,11 +68,27 @@
         }
 
         .swiper-horizontal>.swiper-pagination-progressbar,
-        .swiper-pagination-progressbar.swiper-pagination-horizontal{
+        .swiper-pagination-progressbar.swiper-pagination-horizontal {
             top: auto;
             /* margin-top: 50px; */
             left: 0;
             bottom: 0px !important;
+        }
+
+        .append-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .append-buttons a {
+            display: inline-block;
+            border: 1px solid #007aff;
+            color: #007aff;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 0 10px;
+            font-size: 13px;
         }
     </style>
 </head>
@@ -111,17 +127,34 @@
             <div class="col-12">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 5</div>
-                        <div class="swiper-slide">Slide 6</div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
+                        <div class="swiper-slide" >2011-09-23</div>
+                        <div class="swiper-slide" >2011-10-24</div>
+                        <div class="swiper-slide" >2011-11-25</div>
+                        <div class="swiper-slide" >2013-08-14</div>
+                        <div class="swiper-slide" >2013-09-15</div>
+                        <div class="swiper-slide" >2013-10-16</div>
+                        <div class="swiper-slide" >2018-07-19</div>
+                        <div class="swiper-slide" >2018-08-20</div>
+                        <div class="swiper-slide" >2018-09-21</div>
+                        <div class="swiper-slide" >2020-02-10</div>
+                        <div class="swiper-slide" >2020-03-11</div>
+                        <div class="swiper-slide" >2020-04-12</div>
+                        <div class="swiper-slide" >2021-01-24</div>
+                        <div class="swiper-slide" >2021-02-25</div>
+                        <div class="swiper-slide" >2021-03-25</div>
+                        <div class="swiper-slide" >2022-09-12</div>
+                        <div class="swiper-slide" >2022-10-13</div>
+                        <div class="swiper-slide" >2022-11-14</div>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <p class="append-buttons">
+                        <a href="#" class="slide-2011">2011</a>
+                        <a href="#" class="slide-2013">2013</a>
+                        <a href="#" class="slide-2018">2018</a>
+                        <a href="#" class="slide-2020">2020</a>
+                        <a href="#" class="slide-2021">2021</a>
+                        <a href="#" class="slide-2022">2022</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -129,16 +162,69 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
+        let appendNumber = 600;
+        let prependNumber = 1;
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
             // centeredSlides: true,
             spaceBetween: 30,
-            freeMode:true,
+            freeMode: true,
             pagination: {
                 el: ".swiper-pagination",
-                type: "progressbar",
+                type: "fraction",
             },
+            // virtual: {
+            //     slides: (function () {
+            //         const slides = [];
+            //         for (var i = 0; i < 600; i += 1) {
+            //             slides.push('Slide ' + (i + 1));
+            //         }
+            //         return slides;
+            //     })(),
+            // },
         });
+
+        document
+            .querySelector('.slide-2011')
+            .addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(0, 0);
+            });
+
+        document
+            .querySelector('.slide-2013')
+            .addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(3, 0);
+            });
+
+        document
+            .querySelector('.slide-2018')
+            .addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(6, 0);
+            });
+        document
+            .querySelector('.slide-2020')
+            .addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(9, 0);
+            });
+
+        document
+            .querySelector('.slide-2021')
+            .addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(12, 0);
+            });
+
+        document
+            .querySelector('.slide-2022')
+            .addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(15, 0);
+            });
+
     </script>
 </body>
 

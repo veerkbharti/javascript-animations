@@ -104,19 +104,26 @@
     </nav>
     <div class="container-fluid mt-5 py-5 bg-primary">
         <div class="container ">
-            <div class="row">
+            <div class="row border py-4 rounded">
                 <div class="col-6 px-0">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">Slide 1</div>
-                            <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide p-5"><p>deserunt assumenda temporibus, soluta perferendis, aspernatur quae alias? Impedit tempore labore possimus vero beatae ab error unde ullam ipsam a nostrum debitis tenetur ducimus, delectus distinctio repellat quisquam quos laboriosam illum cum eaque. Voluptates quasi, doloremque soluta tenetur esse iste maxime facere recusandae quisquam impedit iure non consectetur? Dolor dignissimos maxime quod temporibus labore cupiditate?</p></div>
+                            <div class="swiper-slide p-5"><p>itaque neque eligendi, eos dolores enim voluptate ex repudiandae at quod ducimus fugit ad quo possimus! Quia officia consequuntur deserunt natus quaerat laudantium fugit ratione atque laboriosam corrupti nesciunt, esse beatae, nobis molestiae quidem illo ad, suscipit non. Molestiae accusamus pariatur magnam? Minima vero temporibus, totam ut provident commodi quae quaerat, possimus iusto eaque excepturi aliquid atque eum est dolorem nihil. Quae magni architecto quisquam corporis, vero </p></div>
+                            <div class="swiper-slide p-5"><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe voluptate ipsum incidunt, adipisci aut dignissimos quasi obcaecati corrupti quod doloremque repellendus iusto culpa earum! Quae minima vitae facilis exercitationem beatae.</p></div>
+                            <div class="swiper-slide p-5">
+                                <p>itaque neque eligendi, eos dolores enim voluptate ex repudiandae at quod ducimus fugit ad quo possimus! Quia
+                                    officia consequuntur deserunt natus quaerat laudantium fugit ratione atque laboriosam corrupti nesciunt, esse
+                                    beatae, nobis molestiae quidem illo ad, suscipit non. Molestiae accusamus pariatur magnam? Minima vero
+                                    temporibus, totam ut provident commodi quae quaerat, possimus iusto eaque excepturi aliquid atque eum est
+                                    dolorem nihil. Quae magni architecto quisquam corporis, vero </p>
+                            </div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
                 <div class="col-6 px-0">
-                    <img class="img-fluid"
+                    <img class="img-fluid rounded"
                         src="https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg?auto=compress&cs=tinysrgb&w=600"
                         alt="">
                 </div>
@@ -130,6 +137,8 @@
             direction: "vertical",
             auto: true,
             loop:true,
+            speed: 2000,
+            effect: 'fade',
             mousewheel: {
                 releaseOnEdges: true,
             },
