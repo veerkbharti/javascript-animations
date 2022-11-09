@@ -76,8 +76,16 @@
         }
 
         .append-buttons {
+            width: 100%;
             text-align: center;
             margin-top: 20px;
+            overflow-x: scroll;
+
+        }
+
+        .append-buttons .active {
+            background-color: #007aff;
+            color: #fff;
         }
 
         .append-buttons a {
@@ -127,33 +135,33 @@
             <div class="col-12">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" >2011-09-23</div>
-                        <div class="swiper-slide" >2011-10-24</div>
-                        <div class="swiper-slide" >2011-11-25</div>
-                        <div class="swiper-slide" >2013-08-14</div>
-                        <div class="swiper-slide" >2013-09-15</div>
-                        <div class="swiper-slide" >2013-10-16</div>
-                        <div class="swiper-slide" >2018-07-19</div>
-                        <div class="swiper-slide" >2018-08-20</div>
-                        <div class="swiper-slide" >2018-09-21</div>
-                        <div class="swiper-slide" >2020-02-10</div>
-                        <div class="swiper-slide" >2020-03-11</div>
-                        <div class="swiper-slide" >2020-04-12</div>
-                        <div class="swiper-slide" >2021-01-24</div>
-                        <div class="swiper-slide" >2021-02-25</div>
-                        <div class="swiper-slide" >2021-03-25</div>
-                        <div class="swiper-slide" >2022-09-12</div>
-                        <div class="swiper-slide" >2022-10-13</div>
-                        <div class="swiper-slide" >2022-11-14</div>
+                        <div class="swiper-slide">2011-09-23</div>
+                        <div class="swiper-slide">2011-10-24</div>
+                        <div class="swiper-slide">2011-11-25</div>
+                        <div class="swiper-slide">2013-08-14</div>
+                        <div class="swiper-slide">2013-09-15</div>
+                        <div class="swiper-slide">2013-10-16</div>
+                        <div class="swiper-slide">2018-07-19</div>
+                        <div class="swiper-slide">2018-08-20</div>
+                        <div class="swiper-slide">2018-09-21</div>
+                        <div class="swiper-slide">2020-02-10</div>
+                        <div class="swiper-slide">2020-03-11</div>
+                        <div class="swiper-slide">2020-04-12</div>
+                        <div class="swiper-slide">2021-01-24</div>
+                        <div class="swiper-slide">2021-02-25</div>
+                        <div class="swiper-slide">2021-03-25</div>
+                        <div class="swiper-slide">2022-09-12</div>
+                        <div class="swiper-slide">2022-10-13</div>
+                        <div class="swiper-slide">2022-11-14</div>
                     </div>
                     <!-- <div class="swiper-pagination"></div> -->
-                    <p class="append-buttons">
-                        <a href="#" class="slide-2011">2011</a>
-                        <a href="#" class="slide-2013">2013</a>
-                        <a href="#" class="slide-2018">2018</a>
-                        <a href="#" class="slide-2020">2020</a>
-                        <a href="#" class="slide-2021">2021</a>
-                        <a href="#" class="slide-2022">2022</a>
+                    <p class="d-flex justify-content-center append-buttons" id="btnGroup">
+                        <a href="#" class=" slideBtn slide-2011">2011</a>
+                        <a href="#" class=" slideBtn slide-2013">2013</a>
+                        <a href="#" class=" slideBtn slide-2018">2018</a>
+                        <a href="#" class=" slideBtn slide-2020">2020</a>
+                        <a href="#" class=" slideBtn slide-2021">2021</a>
+                        <a href="#" class=" slideBtn slide-2022">2022</a>
                     </p>
                 </div>
             </div>
@@ -165,10 +173,24 @@
         let appendNumber = 600;
         let prependNumber = 1;
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
+            // slidesPerView: 3,
+            // spaceBetween: 30,
             // centeredSlides: true,
-            spaceBetween: 30,
             freeMode: true,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 30
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                }
+            },
             pagination: {
                 el: ".swiper-pagination",
                 type: "fraction",
@@ -224,6 +246,16 @@
                 e.preventDefault();
                 swiper.slideTo(15, 0);
             });
+
+        var btnGroup = document.getElementById("btnGroup");
+        var btns = btnGroup.getElementsByClassName("slideBtn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
 
     </script>
 </body>

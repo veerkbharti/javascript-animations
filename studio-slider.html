@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
     <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
     <!-- <link rel="stylesheet" href="studio.scss"> -->
     <title>Document</title>
@@ -25,10 +27,10 @@
         }
 
         body {
-            background: #1C1F2B;
-            color: #fff;
+            /* background: #1C1F2B; */
+            /* color: #fff; */
             font-family: "Open Sans", sans-serif;
-            font-size: 8px !important;
+            /* font-size: 8px !important; */
         }
 
         /* LIST */
@@ -36,7 +38,7 @@
             list-style: none;
         }
 
-        .container{
+        .container {
             width: 90%;
             margin: 0 auto;
             margin-top: 50px;
@@ -113,14 +115,14 @@
         }
 
 
-        .content{
+        .content {
             height: 85vh;
             /* position: relative; */
             overflow-x: hidden;
             z-index: 9999;
         }
 
-        .content h2{
+        .content h2 {
             color: rgb(255, 255, 255);
             font-size: 60px;
             position: absolute;
@@ -139,6 +141,46 @@
 
         input[type=radio]:checked~.accslide h2 {
             display: inline-block !important;
+        }
+
+        .owl-theme {
+            position: relative;
+        }
+
+        .owl-theme .owl-nav {
+            display: flex;
+            text-align: left;
+            -webkit-tap-highlight-color: transparent;
+            position: absolute !important;
+        }
+
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
+            border-radius: 50%;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 16px;
+            background-color: #2d8ce4;
+            font-size: 21px;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .owl-carousel button.owl-dot {
+            display: none !important;
+        }
+
+        .mobileSlider {
+            margin: 20px auto;
+            width: 100%;
+            background-color: antiquewhite;
         }
 
 
@@ -281,6 +323,26 @@
         li:nth-child(8):nth-last-child(1) input[type=radio]:checked~.accslide {
             width: calc(100% - 320px);
         }
+
+        @media only screen and (max-width: 992px) {
+            .mobileSlider {
+                display: block;
+            }
+
+            .deskSlider {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .mobileSlider {
+                display: none;
+            }
+
+            .deskSlider {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -289,7 +351,7 @@
     <!-- These variables help keep track of the input name and ID-->
     <!-- currentTab helps keep track of each individual input-->
     <!-- tabControlName is used as a unique identifier for the accordion-->
-    <div class="container">
+    <div class="container deskSlider">
         <ul class="mt-5">
             <li>
                 <!-- Using radio inputs means only one can be selected at a time-->
@@ -351,10 +413,50 @@
                     </div>
                 </div>
             </li>
+            <div class="spacer" style="clear: both;"></div>
         </ul>
     </div>
+
+    <div class="mobileSlider">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <h2>Deluxe</h2>
+                <img src="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb"
+                    alt="">
+            </div>
+            <div class="item">
+                <h2>Deluxe</h2>
+                <img src="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb"
+                    alt="">
+            </div>
+            <div class="item">
+                <h2>Deluxe</h2>
+                <img src="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb"
+                    alt="">
+            </div>
+            <div class="item">
+                <h2>Deluxe</h2>
+                <img src="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb"
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                nav: true,
+                smartSpeed: 900,
+                // navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
+            });
+        });
+        // document.querySelector(".owl-carousel").owlCarousel()
+    </script>
 
 </body>
 
