@@ -74,31 +74,15 @@
             <div class="col-4"></div>
             <div class="col-8">
                 <div class="w-100 d-flex flex-wrap gap-4">
-                    <div class="imgView">
+                    <div data-url="https://www.w3schools.com/url-1" class="imgView">
                         <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
                             alt="" class="img-fluid">
                     </div>
-                    <div class="imgView">
+                    <div data-url="https://www.w3schools.com/url-2" class="imgView">
                         <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
                             alt="" class="img-fluid">
                     </div>
-                    <div class="imgView">
-                        <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
-                            alt="" class="img-fluid">
-                    </div>
-                    <div class="imgView">
-                        <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
-                            alt="" class="img-fluid">
-                    </div>
-                    <div class="imgView">
-                        <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
-                            alt="" class="img-fluid">
-                    </div>
-                    <div class="imgView">
-                        <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
-                            alt="" class="img-fluid">
-                    </div>
-                    <div class="imgView">
+                    <div data-url="https://www.w3schools.com/url-3" class="imgView">
                         <img src="https://assets.website-files.com/61018310cfd89d9141de7398/612910334cabe9f4088d3895_SAT-P-COLOR-9.jpg"
                             alt="" class="img-fluid">
                     </div>
@@ -110,18 +94,16 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </body>
 <script>
-    console.log(document.getElementsByClassName("imgView"));
-    var imgView = document.querySelector('.imgView');
     var imgViewAll = document.querySelectorAll('.imgView');
-    // console.log(imgViewAll);
     for (let index = 0; index < imgViewAll.length; index++) {
         imgViewAll[index].addEventListener("click", (e) => {
             imgViewAll[index].classList.add("anim");
             for (let index = 0; index < imgViewAll.length; index++) {
                 imgViewAll[index].style.width = 0
             }
+            const url= imgViewAll[index].dataset.url;
             setTimeout(() => {
-                window.location = "https://www.w3schools.com"
+                window.location = url
             }, 2000)
         })
 

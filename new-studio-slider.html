@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-accordion {
+            width: 100%;
+            height: 550px;
+            overflow: hidden;
+        }
+
+        .flex-accordion ul {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex-accordion ul li {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transition: all 1s ease;
+        }
+
+        .flex-accordion ul li .panel-inner {
+            background-repeat: no-repeat;
+            background-position: center center;
+            overflow: hidden;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .flex-accordion ul li .panel-inner .button {
+            position: absolute;
+            bottom: 10px;
+            left: 130px;
+            width: auto;
+            opacity: 0;
+            text-overflow: ellipsis;
+            z-index: 5;
+            background-color: white;
+            padding: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+
+        .flex-accordion ul li .panel-inner .title {
+            background-color: rgba(0, 0, 0, 1);
+            color: #fff;
+            width: 100px;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .flex-accordion ul li .panel-inner .title__inner {
+            position: absolute;
+            transform: rotate(-90deg);
+        }
+
+        .flex-accordion ul li .panel-inner .title__text {
+            font-size: 30px;
+            display: inline-block;
+            width: 115px;
+            text-align: center;
+            transform: rotate(-90deg) translate3d(-34%, -27%, 0) !important;
+            text-align: end;
+        }
+
+        .flex-accordion ul li .panel-inner .title__number {
+            font-size: 30px;
+            display: inline-block;
+            width: 500px;
+            text-align: center;
+            /* transform: rotate(-90deg) translate3d(0%, -600%, 0) !important; */
+            transform: translate3d(-40%, 1050%, 0) !important;
+        }
+
+        .flex-accordion ul li.is-open {
+            flex-grow: 1;
+            transition: all 1s ease;
+        }
+
+        .flex-accordion ul li.is-open .button {
+            opacity: 1 !important;
+        }
+
+        .flex-accordion ul li.is-open .title {
+            background-color: transparent;
+            transition: all 3s ease;
+        }
+
+        .flex-accordion ul li.is-open a * {
+            opacity: 1;
+        }
+
+        .flex-accordion ul li:not(.is-open) {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-accordion">
+        <ul>
+            <li class="at-accordion__panel is-open"
+                style="background-image:url('https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=74553159742c7cf05c6eb04baabc408c')">
+                <div class="panel-inner">
+                    <!-- <a href="case.html"> -->
+                    <div class="title">
+                        <!-- <div class="title__inner"> -->
+                        <h3 class="title__text">Study</h3>
+
+                        <h3 class="title__number">1</h3>
+                        <!-- </div> -->
+
+                    </div>
+                    <!-- </a> -->
+                </div>
+            </li>
+            <li class="at-accordion__panel"
+                style="background-image:url('https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=0721657b46ce27df52955f73818ab5b7')">
+                <div class="panel-inner">
+                    <!-- <a href="case.html"> -->
+                    <div class="title">
+                        <!-- <div class="title__inner"> -->
+                        <h3 class="title__text">Discover</h3>
+                        <h3 class="title__number">2</h3>
+
+                        <!-- </div> -->
+
+                    </div>
+                    <!-- </a> -->
+                </div>
+            </li>
+            <li class="at-accordion__panel"
+                style="background-image:url('https://images.unsplash.com/photo-1475439242971-afb6fcc1ba22?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=c221a5935a8ea54887ae7178aeff7725')">
+                <div class="panel-inner">
+                    <!-- <a href="case.html"> -->
+                    <div class="title">
+                        <!-- <div class="title__inner"> -->
+                        <h3 class="title__text">Explore</h3>
+                        <h3 class="title__number">3</h3>
+
+                    </div>
+                    <!-- </div> -->
+                    <!-- </a> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        var panel = $('.at-accordion__panel');
+
+        panel.click(function () {
+            // console.log('click');
+            panel.removeClass('is-open');
+
+            $(this).addClass('is-open');
+        });
+
+    </script>
+</body>
+
+</html>
